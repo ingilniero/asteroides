@@ -20,10 +20,13 @@
         android:id="@+id/btn_configurar"
  		style="@style/TextoAsteroides.Botones"
         android:text="@string/configurar"/>
+
     <Button
         android:id="@+id/btn_acercaDe"
         style="@style/TextoAsteroides.Botones"
-        android:text="@string/acerca_de"/>
+        android:onClick="lanzarAcercaDe"
+        android:text="@string/acerca_de" />
+
     <Button
         android:id="@+id/btn_salir"
         style="@style/TextoAsteroides.Botones"

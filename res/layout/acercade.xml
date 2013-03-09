@@ -1,0 +1,9 @@
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/txt_acerca_de"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Esta aplicación ha sido desarrollada como ejemplo para el diplomado de Adroid, con el objetivo
+    			  de demostrar cómo se pueden lanzar nuevas actividades desde cualquier otra actividad.">
+    
+</TextView>

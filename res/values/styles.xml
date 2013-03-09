@@ -16,5 +16,14 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-
+    <style name="TextoAsteroides"
+           parent="android:Theme.Light">
+    	<item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:layout_marginBottom">20dip</item>
+    </style>
+    <style name="TextoAsteroides.Botones">
+    </style>
 </resources>

@@ -33,7 +33,7 @@ public class Asteroides extends Activity {
         getMenuInflater().inflate(R.menu.menu_principal, menu);
         return true;
     }
-    
+     		
     public void lanzarAcercaDe(View view){
     	Intent i = new Intent(this, AcercaDe.class);
     	startActivity(i);

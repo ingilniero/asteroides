@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -26,8 +28,9 @@ public class Asteroides extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.asteroides, menu);
+        super.onCreateOptionsMenu(menu);
+       
+        getMenuInflater().inflate(R.menu.menu_principal, menu);
         return true;
     }
     
@@ -39,4 +42,15 @@ public class Asteroides extends Activity {
     public void lanzarSalir() {
     	finish();
     }
+    
+   @Override
+   public boolean onOptionsItemSelected(MenuItem item) {
+	   
+	   switch (item.getItemId()) {
+	   case R.id.action_acerca_de:
+		   lanzarAcercaDe(null);
+		   break;
+	   }
+	   return true;
+   }
 }

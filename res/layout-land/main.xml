@@ -1,0 +1,53 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="30dip"
+    tools:context=".Asteroides" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/asteroides"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:layout_marginBottom="20dip" />
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:stretchColumns="*" >
+        <TableRow>
+            <Button 
+		        android:id="@+id/btn_jugar"
+		        android:layout_height="wrap_content"
+		        android:layout_width="fill_parent"
+		        android:text="@string/jugar"/>
+    
+    		<Button
+		        android:id="@+id/btn_configurar"
+		        android:layout_height="wrap_content"
+		        android:layout_width="fill_parent"
+		        android:text="@string/configurar"/>
+        </TableRow>
+        <TableRow >
+            <Button
+		        android:id="@+id/btn_acercaDe"
+		        android:layout_height="wrap_content"
+		        android:layout_width="fill_parent"
+		        android:text="@string/acerca_de"/>
+    		<Button
+		        android:id="@+id/btn_salir"
+		        android:layout_height="wrap_content"
+		        android:layout_width="fill_parent"
+		        android:text="@string/salir"/>
+        </TableRow>
+    </TableLayout>
+    
+    
+    
+
+</LinearLayout>

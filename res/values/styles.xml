@@ -26,4 +26,7 @@
     </style>
     <style name="TextoAsteroides.Botones">
     </style>
+    <style name="TemaAsteroides"
+           parent="@android:style/Theme.NoTitleBar">
+    </style>
 </resources>

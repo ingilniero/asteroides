@@ -12,17 +12,27 @@ import android.widget.Button;
 
 public class Asteroides extends Activity {
 	private Button btnSalir;
+	private Button btnPreferencias;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         btnSalir = (Button)findViewById(R.id.btn_salir);
+        btnPreferencias = (Button)findViewById(R.id.btn_configurar);
+        
         btnSalir.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View view) {
 				lanzarSalir();
 			}
+        });
+        
+        btnPreferencias.setOnClickListener(new OnClickListener(){
+        	@Override
+        	public void onClick(View view){
+        		lanzarPreferencias();
+        	}
         });
     }
 
@@ -43,12 +53,20 @@ public class Asteroides extends Activity {
     	finish();
     }
     
+    public void lanzarPreferencias() {
+    	Intent i = new Intent(this, Preferencias.class);
+    	startActivity(i);
+    }
+    
    @Override
    public boolean onOptionsItemSelected(MenuItem item) {
 	   
 	   switch (item.getItemId()) {
 	   case R.id.action_acerca_de:
 		   lanzarAcercaDe(null);
+		   break;
+	   case R.id.action_config:
+		   lanzarPreferencias();
 		   break;
 	   }
 	   return true;

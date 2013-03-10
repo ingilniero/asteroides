@@ -11,7 +11,8 @@ public class Puntuaciones extends ListActivity{
 		setContentView(R.layout.puntuaciones);
 		setListAdapter(
 				new ArrayAdapter<String>(this,
-						android.R.layout.simple_list_item_1,
+						R.layout.elemento_lista,
+						R.id.titulo,
 						Asteroides.almacen.listaPuntuaciones(10)));
 	}
 

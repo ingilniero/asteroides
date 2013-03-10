@@ -28,8 +28,8 @@
         android:text="@string/acerca_de" />
 
     <Button
-        android:id="@+id/btn_salir"
+        android:id="@+id/btn_puntuaciones"
         style="@style/TextoAsteroides.Botones"
-        android:text="@string/salir"/>
+        android:text="@string/puntuaciones"/>
 
 </LinearLayout>

@@ -11,27 +11,29 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class Asteroides extends Activity {
-	private Button btnSalir;
+	private Button btnPuntuaciones;
 	private Button btnPreferencias;
+	
+	public static AlmacenPuntuaciones almacen = new AlmacenPuntuacionesArray();
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        btnSalir = (Button)findViewById(R.id.btn_salir);
+        btnPuntuaciones = (Button)findViewById(R.id.btn_puntuaciones);
         btnPreferencias = (Button)findViewById(R.id.btn_configurar);
         
-        btnSalir.setOnClickListener(new OnClickListener(){
+        btnPuntuaciones.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View view) {
-				lanzarSalir();
+				lanzarPuntuaciones(null);
 			}
         });
         
         btnPreferencias.setOnClickListener(new OnClickListener(){
         	@Override
         	public void onClick(View view){
-        		lanzarPreferencias();
+        		lanzarPreferencias(null);
         	}
         });
     }
@@ -49,11 +51,11 @@ public class Asteroides extends Activity {
     	startActivity(i);
     }
     
-    public void lanzarSalir() {
-    	finish();
+    public void lanzarPuntuaciones(View view) {
+    	//Intent para la clase de Puntuaciones
     }
     
-    public void lanzarPreferencias() {
+    public void lanzarPreferencias(View view) {
     	Intent i = new Intent(this, Preferencias.class);
     	startActivity(i);
     }
@@ -66,7 +68,7 @@ public class Asteroides extends Activity {
 		   lanzarAcercaDe(null);
 		   break;
 	   case R.id.action_config:
-		   lanzarPreferencias();
+		   lanzarPreferencias(null);
 		   break;
 	   }
 	   return true;

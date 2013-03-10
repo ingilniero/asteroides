@@ -43,7 +43,7 @@
 		        android:id="@+id/btn_salir"
 		        android:layout_height="wrap_content"
 		        android:layout_width="fill_parent"
-		        android:text="@string/salir"/>
+		        android:text="@string/puntuaciones"/>
         </TableRow>
     </TableLayout>
     

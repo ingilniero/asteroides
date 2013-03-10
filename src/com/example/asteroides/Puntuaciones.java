@@ -10,10 +10,7 @@ public class Puntuaciones extends ListActivity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.puntuaciones);
 		setListAdapter(
-				new ArrayAdapter<String>(this,
-						R.layout.elemento_lista,
-						R.id.titulo,
-						Asteroides.almacen.listaPuntuaciones(10)));
+				new PuntuacionesAdaptador(this,Asteroides.almacen.listaPuntuaciones(10)));
 	}
 
 }

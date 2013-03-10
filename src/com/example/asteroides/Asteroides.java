@@ -52,7 +52,8 @@ public class Asteroides extends Activity {
     }
     
     public void lanzarPuntuaciones(View view) {
-    	//Intent para la clase de Puntuaciones
+    	Intent i = new Intent(this, Puntuaciones.class);
+    	startActivity(i);
     }
     
     public void lanzarPreferencias(View view) {

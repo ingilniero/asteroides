@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="30dip"
-    tools:context=".Asteroides" >
+    tools:context=".Asteroides">
 
     <TextView
         style="@style/TextoAsteroides"
@@ -31,5 +31,9 @@
         android:id="@+id/btn_puntuaciones"
         style="@style/TextoAsteroides.Botones"
         android:text="@string/puntuaciones"/>
-
+    
+    <Button
+        android:id="@+id/btn_salir"
+        style="@style/TextoAsteroides.Botones"
+        android:text="@string/salir"/>
 </LinearLayout>

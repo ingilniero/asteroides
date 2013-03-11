@@ -9,5 +9,6 @@
     <string name="configurar">Configurar</string>
     <string name="acerca_de">Acerca De</string>
     <string name="puntuaciones">Puntuaciones</string>
+    <string name="salir">Salir</string>
 
 </resources>

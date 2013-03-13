@@ -53,8 +53,10 @@ public class VistaJuego extends View {
 		nave.setPosY(alto / 2);
 		
 		for(Grafico asteroide: asteroides){
+			do {
 				asteroide.setPosX(Math.random() * (ancho - asteroide.getAncho()));
-				asteroide.setPosY(Math.random() * (alto - asteroide.getAlto()));				
+				asteroide.setPosY(Math.random() * (alto - asteroide.getAlto()));								
+			} while(asteroide.distancia(nave) < nave.getAlto() + nave.getAncho() );
 		}
 	}
 	

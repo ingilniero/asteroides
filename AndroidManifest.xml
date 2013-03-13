@@ -25,6 +25,7 @@
         <activity android:name=".AcercaDe" android:label="Acerca de..." android:theme="@android:style/Theme.Dialog"/>
         <activity android:name=".Preferencias" android:label="Preferencias"/>
         <activity android:name=".Puntuaciones" android:label="Puntuaciones"/>
+        <activity android:name=".Juego" android:label="Juego"/>
     </application>
 
 </manifest>

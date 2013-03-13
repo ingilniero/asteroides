@@ -14,6 +14,7 @@
     <Button 
         android:id="@+id/btn_jugar"
         style="@style/TextoAsteroides.Botones"
+        android:onClick="lanzarJuego"
         android:text="@string/jugar"/>
     
     <Button

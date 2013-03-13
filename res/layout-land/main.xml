@@ -25,6 +25,7 @@
 		        android:id="@+id/btn_jugar"
 		        android:layout_height="wrap_content"
 		        android:layout_width="fill_parent"
+		        android:onClick="lanzarJuego"
 		        android:text="@string/jugar"/>
     
     		<Button
@@ -38,6 +39,7 @@
 		        android:id="@+id/btn_acercaDe"
 		        android:layout_height="wrap_content"
 		        android:layout_width="fill_parent"
+		        android:onClick="lanzarAcercaDe"
 		        android:text="@string/acerca_de"/>
     		<Button
 		        android:id="@+id/btn_puntuaciones"

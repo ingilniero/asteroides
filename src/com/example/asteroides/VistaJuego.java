@@ -1,15 +1,20 @@
 package com.example.asteroides;
 
+import java.util.List;
 import java.util.Vector;
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-public class VistaJuego extends View {
+public class VistaJuego extends View implements SensorEventListener{
 	private Vector<Grafico> asteroides;
 	private int numAsteroides = 5;
 	private int numFragmentos = 3;
@@ -26,7 +31,10 @@ public class VistaJuego extends View {
 	private static int PERIODO_PROCESO = 50;
 	private long ultimoProceso = 0;
 	
-	public VistaJuego(Context context, AttributeSet attrs) {
+	private boolean hayValorInicial = false;
+	private float valorInicial;
+	
+	public VistaJuego(Context context, AttributeSet attrs){
 		
 		super(context, attrs);
 		
@@ -48,6 +56,14 @@ public class VistaJuego extends View {
 			asteroide.setRotacion((int) (Math.random() * 8 - 4));
 			
 			asteroides.add(asteroide);
+		}
+		
+		SensorManager mSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
+		List<Sensor> listSensors = mSensorManager.getSensorList(Sensor.TYPE_ORIENTATION);
+		
+		if(!listSensors.isEmpty()) {
+			Sensor orientationSensor = listSensors.get(0);
+			mSensorManager.registerListener(this, orientationSensor, SensorManager.SENSOR_DELAY_GAME);
 		}
 	}
 	
@@ -143,6 +159,22 @@ public class VistaJuego extends View {
 		mY = y;
 		return true;
 		
+	}
+	
+	@Override
+	public void onAccuracyChanged(Sensor sensor, int accuracy){
+	
+	}
+	
+	
+	@Override
+	public void onSensorChanged(SensorEvent event){
+		float valor = event.values[1];
+		if (!hayValorInicial) {
+			valorInicial = valor;
+			hayValorInicial = true;
+		}
+		giroNave = (int) (valor - valorInicial) / 3;
 	}
 	
 	

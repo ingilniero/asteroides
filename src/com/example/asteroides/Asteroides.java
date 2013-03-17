@@ -2,6 +2,7 @@ package com.example.asteroides;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -15,6 +16,8 @@ public class Asteroides extends Activity {
 	private Button btnPuntuaciones;
 	private Button btnPreferencias;
 	private Button btnSalir;
+	
+	private MediaPlayer mp;
 	
 	public static AlmacenPuntuaciones almacen = new AlmacenPuntuacionesArray();
 	
@@ -46,6 +49,8 @@ public class Asteroides extends Activity {
         		lanzarSalir(null);
         	}
         });
+        mp = MediaPlayer.create(this, R.raw.audio);
+        mp.start();
         Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
     }
 
@@ -105,6 +110,7 @@ public class Asteroides extends Activity {
    @Override
    protected void onResume(){
 	   super.onResume();
+	   mp.start();
 	   Toast.makeText(this, "onResume", Toast.LENGTH_SHORT).show();
    }
    
@@ -112,12 +118,14 @@ public class Asteroides extends Activity {
    protected void onPause(){
 	   super.onPause();
 	   Toast.makeText(this,"onPause", Toast.LENGTH_SHORT).show();
+	   mp.pause();
    }
    
    @Override
    protected void onStop(){
 	   super.onStop();
 	   Toast.makeText(this, "onStop", Toast.LENGTH_SHORT).show();
+	   
    }
    
    @Override

@@ -18,12 +18,14 @@ public class Juego extends Activity {
 	protected void onPause() {
 		super.onPause();
 		vistaJuego.getThread().pausar();
+		vistaJuego.detenerSensor();
 	}
 	
 	@Override
 	protected void onResume() {
 		super.onResume();
 		vistaJuego.getThread().reanudar();
+		vistaJuego.registrarSensor();
 	}
 	
 	@Override
@@ -31,6 +33,7 @@ public class Juego extends Activity {
 		vistaJuego.getThread().detener();
 		super.onDestroy();
 	}
+	
 	
 
 }

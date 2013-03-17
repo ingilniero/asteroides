@@ -43,6 +43,8 @@ public class VistaJuego extends View implements SensorEventListener{
 	private boolean misilActivo = false;
 	private int tiempoMisil;
 	
+	private SensorManager mSensorManager;
+	
 	public VistaJuego(Context context, AttributeSet attrs){
 		
 		super(context, attrs);
@@ -76,13 +78,8 @@ public class VistaJuego extends View implements SensorEventListener{
 			asteroides.add(asteroide);
 		}
 		
-		SensorManager mSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
-		List<Sensor> listSensors = mSensorManager.getSensorList(Sensor.TYPE_ORIENTATION);
-		
-		if(!listSensors.isEmpty()) {
-			Sensor orientationSensor = listSensors.get(0);
-			mSensorManager.registerListener(this, orientationSensor, SensorManager.SENSOR_DELAY_GAME);
-		}
+		mSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
+		registrarSensor();
 	}
 	
 	synchronized protected void actualizaFisica() {
@@ -271,6 +268,19 @@ public class VistaJuego extends View implements SensorEventListener{
 
 	public ThreadJuego getThread() {
 		return thread;
+	}
+	
+	public void registrarSensor(){
+		List<Sensor> listSensors = mSensorManager.getSensorList(Sensor.TYPE_ORIENTATION);
+		
+		if(!listSensors.isEmpty()) {
+			Sensor orientationSensor = listSensors.get(0);
+			mSensorManager.registerListener(this, orientationSensor, SensorManager.SENSOR_DELAY_GAME);
+		}
+	}
+	
+	public void detenerSensor(){
+		mSensorManager.unregisterListener(this);
 	}
 	
 }

@@ -100,6 +100,24 @@ public class Asteroides extends Activity {
 	   return true;
    }
    
+   @Override
+   protected void onSaveInstanceState(Bundle savedInstanceState){
+	   super.onSaveInstanceState(savedInstanceState);
+	   if(mp != null){
+		   int pos = mp.getCurrentPosition();
+		   savedInstanceState.putInt("posicion",pos);
+	   }
+   }
+   
+   @Override
+   protected void onRestoreInstanceState(Bundle savedInstanceState){
+	   super.onRestoreInstanceState(savedInstanceState);
+	   if(savedInstanceState != null && mp != null){
+		   int pos = savedInstanceState.getInt("posicion");
+		   mp.seekTo(pos);
+	   }
+   }
+   
    
    @Override
    protected void onStart(){

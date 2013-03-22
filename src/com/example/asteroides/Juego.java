@@ -13,7 +13,6 @@ public class Juego extends Activity {
 		setContentView(R.layout.juego);
 		
 		vistaJuego = (VistaJuego) findViewById(R.id.VistaJuego);
-		startService(new Intent(this, ServicioMusica.class));
 	}
 	
 	@Override
@@ -21,7 +20,6 @@ public class Juego extends Activity {
 		super.onPause();
 		vistaJuego.getThread().pausar();
 		vistaJuego.detenerSensor();
-		stopService(new Intent(this, ServicioMusica.class));
 	}
 	
 	@Override
@@ -29,11 +27,14 @@ public class Juego extends Activity {
 		super.onResume();
 		vistaJuego.getThread().reanudar();
 		vistaJuego.registrarSensor();
+		startService(new Intent(this, ServicioMusica.class));
 	}
+
 	
 	@Override
 	protected void onDestroy() {
 		vistaJuego.getThread().detener();
+		stopService(new Intent(this, ServicioMusica.class));
 		super.onDestroy();
 	}
 	

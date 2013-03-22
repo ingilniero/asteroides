@@ -8,6 +8,7 @@
         android:minSdkVersion="7"
         android:targetSdkVersion="17" />
 
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -26,6 +27,8 @@
         <activity android:name=".Preferencias" android:label="Preferencias"/>
         <activity android:name=".Puntuaciones" android:label="Puntuaciones"/>
         <activity android:name=".Juego" android:label="Juego" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        
+        <service android:name=".ServicioMusica"/>
     </application>
 
 </manifest>

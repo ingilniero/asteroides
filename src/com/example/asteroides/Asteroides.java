@@ -143,13 +143,13 @@ public class Asteroides extends Activity {
    protected void onStop(){
 	   super.onStop();
 	   Toast.makeText(this, "onStop", Toast.LENGTH_SHORT).show();
-	   
    }
    
    @Override
    protected void onRestart(){
 	   super.onRestart();
 	   Toast.makeText(this, "onRestart", Toast.LENGTH_SHORT).show();
+	   mp.start();
    }
    
    @Override

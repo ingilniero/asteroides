@@ -19,7 +19,7 @@ public class Asteroides extends Activity {
 	
 	private MediaPlayer mp;
 	
-	public static AlmacenPuntuaciones almacen = new AlmacenPuntuacionesArray();
+	public static AlmacenPuntuaciones almacen;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,8 @@ public class Asteroides extends Activity {
         btnPreferencias = (Button)findViewById(R.id.btn_configurar);
         btnSalir = (Button)findViewById(R.id.btn_salir);
         
+        almacen = new AlmacenPuntuacionesPreferencias(this);
+
         btnPuntuaciones.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View view) {

@@ -64,7 +64,19 @@ public class Asteroides extends Activity {
     
     public void lanzarJuego(View view) {
     	Intent i = new Intent(this, Juego.class);
-    	startActivity(i);
+    	startActivityForResult(i, 1234);
+    }
+    
+    @Override
+    protected void onActivityResult (int requestCode, int resultCode, Intent data){
+    	super.onActivityResult(requestCode, resultCode, data);
+    	
+    	if(requestCode == 1234 && resultCode == RESULT_OK && data != null){
+    		int puntos = data.getExtras().getInt("puntuacion");
+    		String nombre = "Yo";
+    		almacen.guardarPuntuacion(puntos, nombre, System.currentTimeMillis());
+    		lanzarPuntuaciones(null);
+    	}
     }
      		
     public void lanzarAcercaDe(View view){

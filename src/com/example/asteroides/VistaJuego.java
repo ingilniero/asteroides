@@ -3,7 +3,9 @@ package com.example.asteroides;
 import java.util.List;
 import java.util.Vector;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint.Style;
@@ -14,6 +16,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -44,6 +47,9 @@ public class VistaJuego extends View implements SensorEventListener{
 	private int tiempoMisil;
 	
 	private SensorManager mSensorManager;
+	
+	private int puntuacion = 0;
+	private Activity padre;
 	
 	public VistaJuego(Context context, AttributeSet attrs){
 		
@@ -119,6 +125,11 @@ public class VistaJuego extends View implements SensorEventListener{
 						break;
 					}
 				}
+			}
+		}
+		for(Grafico asteroide : asteroides){
+			if(asteroide.verificaColision(nave)){
+				salir();
 			}
 		}
 	}
@@ -214,7 +225,12 @@ public class VistaJuego extends View implements SensorEventListener{
 	
 	private void destruyeAsteroide(int i){
 		asteroides.remove(i);
+		puntuacion += 1000;
 		misilActivo = false;
+		
+		if(asteroides.isEmpty()){
+			salir();
+		}
 	}
 	
 	private void ActivaMisil() {
@@ -281,6 +297,19 @@ public class VistaJuego extends View implements SensorEventListener{
 	
 	public void detenerSensor(){
 		mSensorManager.unregisterListener(this);
+	}
+	
+	public void setPadre(Activity padre){
+		this.padre = padre;
+	}
+	
+	private void salir(){
+		Bundle bundle = new Bundle();
+		bundle.putInt("puntuacion", puntuacion);
+		Intent intent = new Intent();
+		intent.putExtras(bundle);
+		padre.setResult(Activity.RESULT_OK, intent);
+		padre.finish();
 	}
 	
 }

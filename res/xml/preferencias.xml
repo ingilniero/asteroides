@@ -20,5 +20,13 @@
         android:title="Número de Fragmentos"
         android:summary="Trozos en los que se divide un asteroide"
         android:defaultValue="3"/>
+    
+    <ListPreference 
+        android:key="tipos_de_almacenamiento"
+        android:title="Almacenamiento para puntuaciones"
+        android:summary="Define como seran almacenadas las puntuaciones"
+        android:entries="@array/tiposAlmacenamientoPuntuaciones"
+        android:entryValues="@array/tiposAlmacenamientoPuntuacionesValores"
+        android:defaultValue="0"/>
 
 </PreferenceScreen>

@@ -9,4 +9,15 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+    
+    <string-array name="tiposAlmacenamientoPuntuaciones">
+        <item>array</item>
+        <item>shared preferences</item>
+        <item>arhivo (memoria interna)</item>
+    </string-array>
+    <string-array name="tiposAlmacenamientoPuntuacionesValores">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 </resources>

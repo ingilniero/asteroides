@@ -1,16 +1,18 @@
 package com.example.asteroides;
 
+
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class Asteroides extends Activity {
 	private Button btnPuntuaciones;
@@ -18,6 +20,11 @@ public class Asteroides extends Activity {
 	private Button btnSalir;
 	
 	private MediaPlayer mp;
+	
+	private static final int ARRAY = 0;
+	private static final int SHARED_PREFERENCES = 1;
+	private static final int ARCHIVO_MEMORIA_INTERNA = 2;
+	
 	
 	public static AlmacenPuntuaciones almacen;
 	
@@ -29,7 +36,7 @@ public class Asteroides extends Activity {
         btnPreferencias = (Button)findViewById(R.id.btn_configurar);
         btnSalir = (Button)findViewById(R.id.btn_salir);
         
-        almacen = new AlmacenPuntuacionesPreferencias(this);
+        tipoDeAlmacenamiento(this); 
 
         btnPuntuaciones.setOnClickListener(new OnClickListener(){
 			@Override
@@ -129,6 +136,23 @@ public class Asteroides extends Activity {
 		   int pos = savedInstanceState.getInt("posicion");
 		   mp.seekTo(pos);
 	   }
+   }
+   
+   public static void tipoDeAlmacenamiento(Context context){
+	   SharedPreferences preferencias = PreferenceManager.getDefaultSharedPreferences(context);
+       String tipoAlmacenamiento = preferencias.getString("tipos_de_almacenamiento", String.valueOf(ARRAY));
+       
+       switch(Integer.parseInt(tipoAlmacenamiento)){
+       case ARRAY:
+    	   almacen = new AlmacenPuntuacionesArray();
+    	   break;
+       case SHARED_PREFERENCES:
+    	   almacen = new AlmacenPuntuacionesPreferencias(context);
+    	   break;
+       case ARCHIVO_MEMORIA_INTERNA:
+    	   almacen = new AlmacenPuntuacionesArhivoInterno(context);
+    	   break;
+       }
    }
    
    

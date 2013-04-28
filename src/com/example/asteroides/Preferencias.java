@@ -12,4 +12,9 @@ public class Preferencias extends PreferenceActivity {
 		addPreferencesFromResource(R.xml.preferencias);
 	}
 
+	@Override
+	protected void onStop(){
+		super.onStop();
+		Asteroides.tipoDeAlmacenamiento(this);
+	}
 }

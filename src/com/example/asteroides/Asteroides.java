@@ -24,6 +24,7 @@ public class Asteroides extends Activity {
 	private static final int ARRAY = 0;
 	private static final int SHARED_PREFERENCES = 1;
 	private static final int ARCHIVO_MEMORIA_INTERNA = 2;
+	private static final int ARCHIVO_MEMORIA_EXTERNA = 3;
 	
 	
 	public static AlmacenPuntuaciones almacen;
@@ -151,6 +152,9 @@ public class Asteroides extends Activity {
     	   break;
        case ARCHIVO_MEMORIA_INTERNA:
     	   almacen = new AlmacenPuntuacionesArhivoInterno(context);
+    	   break;
+       case ARCHIVO_MEMORIA_EXTERNA:
+    	   almacen = new AlmacenPuntuacionesArhivoExterno(context);
     	   break;
        }
    }
